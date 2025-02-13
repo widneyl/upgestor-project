@@ -1,0 +1,13 @@
+#card-ini {
+    width: 30%;
+  }
+  
+  .card-rodape {
+    border-top: 1px solid white;
+  }
+  
+  .txt-titulo {
+    color: white;
+    font-size: x-large;
+    font-weight: 500;
+  }
