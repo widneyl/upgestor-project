@@ -1,0 +1,18 @@
+.seta {
+    height: 15px;
+    width: 15px;
+}
+
+.row-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.HeaderBar {
+    justify-content: space-between;
+    align-items: center;
+    height: 8%;
+    width: 100%;
+    padding: 1%;
+}

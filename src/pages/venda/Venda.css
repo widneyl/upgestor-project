@@ -1,0 +1,4 @@
+#admin-section {
+    display: flex;
+    flex-direction: row;
+}
