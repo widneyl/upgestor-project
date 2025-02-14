@@ -1,0 +1,33 @@
+@media screen and (max-width: 1000px) {
+    #admin-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .area-cards {
+        display: flex;
+        flex-direction: column;
+
+
+    }
+
+    .lista-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #card-ini {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .lista-graf {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+   
+
+}
