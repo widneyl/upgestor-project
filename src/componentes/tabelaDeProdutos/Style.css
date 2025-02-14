@@ -1,0 +1,57 @@
+.table-container {
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.table-produtos {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.table-produtos th, 
+.table-produtos td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table-produtos th {
+    background-color: #f4f4f9;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.table-produtos tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-produtos tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-produtos tr.selecionado {
+    background-color: #d1e7ff; /* Adiciona um destaque visual à linha selecionada */
+}
+
+.checkbox {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .table-produtos {
+        font-size: 14px;
+    }
+
+    .table-produtos th, 
+    .table-produtos td {
+        padding: 8px 10px;
+    }
+}
