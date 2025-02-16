@@ -3,6 +3,7 @@ import Venda from './pages/venda/Venda'
 import Inicio from "./pages/inicio/Inicio";
 import Gestao from './pages/gestao/Gestao'
 import Estoque from "./pages/gestao/estoque/Estoque";
+import LoginScreen from "./pages/login/LoginScreen";
 
 
 export default function Rotas() {
@@ -20,6 +21,11 @@ export default function Rotas() {
                 />
                 <Route path="/estoque"
                     element={<Estoque />}
+                /><Route path="/estoque"
+                    element={<Estoque />}
+                />
+                <Route path="/login"
+                    element={<LoginScreen/>} 
                 />
             </Routes>
 
