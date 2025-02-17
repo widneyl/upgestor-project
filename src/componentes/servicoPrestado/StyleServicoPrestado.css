@@ -1,0 +1,24 @@
+.servicoPrestado {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+}
+
+.servicoPrestado label{
+    padding: 20px 20px 20px 20px;
+}
+
+.servicoPrestado select{
+    padding: 15px 15px 15px 15px;
+}
+
+
+.servicoPrestado input{
+    width: 100px;
+}
+
+.servicoPrestado button{
+    border-radius: 10px;
+    width: 200px;
+    margin: 10px 10px 10px 10px;
+}
