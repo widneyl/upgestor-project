@@ -1,0 +1,15 @@
+#admin-section {
+    flex-direction: row;
+  }
+
+@media screen and (max-width: 720px) {
+  #admin-section {
+    flex-direction: column;
+  }
+}
+
+@media screen  and (max-width: 560px){
+  #admin-section .search-input {
+    max-width: 200px;
+  }
+}
