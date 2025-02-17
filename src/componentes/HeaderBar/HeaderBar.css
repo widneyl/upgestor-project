@@ -1,12 +1,25 @@
 .seta {
     height: 15px;
     width: 15px;
+    padding: 2px;
 }
 
 .row-flex {
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: 10px;
+}
+img{
+    padding: 10px;
+}
+p{
+    padding: 10px;
+}
+
+h1{
+    font-size: 30px;
+    padding: 10px;
 }
 
 .HeaderBar {
