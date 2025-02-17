@@ -16,7 +16,7 @@
 .table-produtos th, 
 .table-produtos td {
     padding: 12px 15px;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     text-align: left;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .table-produtos tr:nth-child(even) {
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
 }
 
 .table-produtos tr:hover {
@@ -43,6 +43,13 @@
 .checkbox {
     display: flex;
     justify-content: center;
+}
+
+
+/* força uma cor diferente para o estilo do bootstrap */
+.form-check-input:checked {
+    background-color: #0dc142 !important;
+    border-color: #0dc142 !important;
 }
 
 @media (max-width: 768px) {

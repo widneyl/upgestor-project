@@ -1,13 +1,22 @@
-import seta from '../../img/seta_para_baixo.svg';
-import './SearchBar.css';
+import DropDownMenu from "../DropDownMenu/DropDownMenu";
+import Input from "../Input/Input";
+import "./style.css";
 
 // barra para pesquisar itens
 export default function SearchBar() {
-    return <div className='SearchBar'>
-        <input type="text" placeholder="Pesquisar"/>
-        <div className="categoria">
-            <p>Categoria</p>
-            <img src={seta} className="seta"/>
-        </div>
+  return (
+    <div className="d-flex flex-row gap-5 searchbar">
+      <Input tipo="text" placeholder="Pesquisar" />
+      <DropDownMenu
+        nome="Categoria"
+        options={[
+          { key: "option1" },
+          { key: "option2" },
+          { key: "option3" },
+          { key: "option4" },
+          { key: "option5" },
+        ]}
+      />
     </div>
+  );
 }

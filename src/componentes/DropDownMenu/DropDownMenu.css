@@ -1,0 +1,17 @@
+.dropdown-menu.show {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0 1rem 0;
+}
+
+.item {
+    width: 100%;
+    text-align: center;
+}
+
+.item:hover {
+    color: white;
+    background-color: #60656ea4;
+}
