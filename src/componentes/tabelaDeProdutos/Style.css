@@ -5,6 +5,7 @@
     overflow-x: auto;
     border: 1px solid #ddd;
     border-radius: 5px;
+    padding: 10px;
 }
 
 .table-produtos {
@@ -40,7 +41,7 @@
     background-color: #d1e7ff; /* Adiciona um destaque visual à linha selecionada */
 }
 
-.checkbox {
+.checkbox{
     display: flex;
     justify-content: center;
 }

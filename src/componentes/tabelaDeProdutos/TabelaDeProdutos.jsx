@@ -41,9 +41,8 @@ export default function TabelaDeProdutos() {
                     <tr>
                         <th>Nome</th>
                         <th>Categoria</th>
-                        <th>Preço</th>
                         <th>Estoque Atual</th>
-                        <th>Selecionar</th>
+                        <th>Preço</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,11 +54,12 @@ export default function TabelaDeProdutos() {
                         >
                             <td>{produto.nome}</td>
                             <td>{produto.categoria}</td>
+                            <td>{produto.estoque} </td>
                             <td>{produto.preco}</td>
-                            <td>{produto.estoque}</td>
                             <td className="checkbox">
-                                <input type="checkbox" checked={selecionados[produto.id]} readOnly />
+                            <input type="checkbox" checked={selecionados[produto.id]} readOnly />
                             </td>
+                            
                         </tr>
                     ))}
                 </tbody>
