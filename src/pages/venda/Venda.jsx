@@ -7,10 +7,7 @@ import "./style.css";
 
 export default function Inicio() {
 
-  const [selecionados, setSelecionados] = useState([]);
-  useEffect(() => {
-    console.log("Itens selecionados:", selecionados);
-  }, [selecionados]);
+  
 
 
   return (

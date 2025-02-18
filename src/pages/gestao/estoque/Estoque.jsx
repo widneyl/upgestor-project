@@ -32,8 +32,8 @@ export default function Estoque() {
 
                         <NavGestao
                             t1={"Produtos"}
-                            t2={"Balanço de estoque"}
-                            t3={"Cadastro de produtos"}
+                            t2={"Cadastro de produtos"}
+                            t3={"Balanço de estoque"}
                             onButtonClick={handleButtonClick}
                         />
 
