@@ -6,6 +6,13 @@ import Servico from "../../componentes/servicoPrestado/servicoPrestado";
 import "./style.css";
 
 export default function Inicio() {
+
+  const [selecionados, setSelecionados] = useState([]);
+  useEffect(() => {
+    console.log("Itens selecionados:", selecionados);
+  }, [selecionados]);
+
+
   return (
     <section id="admin-section" className="d-flex">
       <Header />

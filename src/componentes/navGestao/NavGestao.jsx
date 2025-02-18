@@ -19,6 +19,7 @@ export default function NavGestao({ t1, t2, t3, t4, t5, filtros, onButtonClick }
             <div className={`menu-itens ${menuAberto ? 'aberto' : ''}`}>
                 <button className="text-header" onClick={() => onButtonClick(t1)}>{t1}</button>
                 <button className="text-header" onClick={() => onButtonClick(t2)}>{t2}</button>
+                <button className="text-header" onClick={() => onButtonClick(t3)}>{t3}</button>
             </div>
 
 

@@ -2,11 +2,20 @@ import { useState } from 'react';
 import Header from '../../../componentes/header/Header'
 import HeaderBar from '../../../componentes/HeaderBar/HeaderBar'
 import NavGestao from '../../../componentes/navGestao/NavGestao';
-import TabelaDeProdutos from '../../../componentes/tabelaDeProdutos/TabelaDeProdutos';
 
 import './style.css';
+import CadastroDeProdutos from './cadastroProdutos/CadastroDeProdutos';
+import ProdutosDoEstoque from './produtos/ProdutosDoEstoque';
 
 export default function Estoque() {
+
+    const [itemClicado, setItemClicado] = useState(null);
+
+    const handleItemClick = (produto) => {
+        console.log("Item clicado:", produto);
+        setItemClicado(produto);
+    };
+
     const [abaSelecionada, setAbaSelecionada] = useState('');
 
     const handleButtonClick = (buttonName) => {
@@ -24,11 +33,27 @@ export default function Estoque() {
                         <NavGestao
                             t1={"Produtos"}
                             t2={"Balanço de estoque"}
+                            t3={"Cadastro de produtos"}
                             onButtonClick={handleButtonClick}
                         />
 
-                        {abaSelecionada === 'Produtos' && <TabelaDeProdutos />}
+                        {abaSelecionada === 'Produtos' && <ProdutosDoEstoque/>}
                         {abaSelecionada === 'Balanço de estoque' && <p>Balanço de estoque em construção...</p>}
+                        {abaSelecionada === 'Cadastro de produtos' && <CadastroDeProdutos />}
+
+                        {itemClicado && (
+                            <div className="detalhes-item">
+                                <h2>Detalhes do Item Clicado:</h2>
+                                <p><strong>Nome:</strong> {itemClicado.nome || ""}</p>
+                                <p><strong>Categoria:</strong> {itemClicado.categoria || ""}</p>
+                                <p><strong>Preço:</strong> {itemClicado.preco || ""}</p>
+                                <p><strong>Estoque:</strong> {itemClicado.estoque || ""}</p>
+                            </div>
+                        )}
+
+
+
+
                     </div>
                 </div>
             </section>
