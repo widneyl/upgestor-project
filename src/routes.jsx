@@ -21,15 +21,11 @@ export default function Rotas() {
                 />
                 <Route path="/estoque"
                     element={<Estoque />}
-                /><Route path="/estoque"
-                    element={<Estoque />}
                 />
                 <Route path="/login"
                     element={<LoginScreen/>} 
                 />
             </Routes>
-
-
         </BrowserRouter>
     );
 }

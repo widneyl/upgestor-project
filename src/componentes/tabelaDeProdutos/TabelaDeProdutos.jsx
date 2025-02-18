@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Style.css";
 
 const produtos = [
@@ -163,7 +163,7 @@ export default function TabelaDeProdutos() {
             <th>Categoria</th>
             <th>Preço</th>
             <th>Estoque Atual</th>
-            <th>Selecionar</th>
+            <th> </th>
           </tr>
         </thead>
         <tbody>
