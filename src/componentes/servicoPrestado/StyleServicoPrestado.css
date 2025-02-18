@@ -1,0 +1,12 @@
+.servicoPrestado th, .servicoPrestado td {
+    font-weight: bold;
+    padding: 12px 15px;
+}
+
+.servicoPrestado .table input {
+    max-width: 300px;
+}
+
+.table {
+    border-style: hidden;
+}

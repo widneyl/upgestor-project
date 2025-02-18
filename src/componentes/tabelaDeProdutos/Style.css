@@ -1,9 +1,9 @@
 .table-container {
     width: 100%;
-    max-height: 500px;
+    max-height: 250px;
     overflow-y: auto;
     overflow-x: auto;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     border-radius: 5px;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .table-produtos th {
-    background-color: #f4f4f9;
+    background-color: #ffffff;
     font-weight: bold;
     position: sticky;
     top: 0;
