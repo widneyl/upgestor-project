@@ -6,6 +6,10 @@ import Servico from "../../componentes/servicoPrestado/servicoPrestado";
 import "./style.css";
 
 export default function Inicio() {
+
+  
+
+
   return (
     <section id="admin-section" className="d-flex">
       <Header />

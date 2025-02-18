@@ -1,0 +1,8 @@
+#label {
+    color: #545454;
+    font-weight: bold;
+}
+#form {
+    width: 100%; /* Isso fará com que os inputs ocupem toda a largura do contêiner */
+    max-width: 600px; /* Ajuste conforme desejado */
+}

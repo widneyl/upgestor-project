@@ -1,0 +1,35 @@
+p {
+    color: #545454;
+    /* Cor para o texto do <p> */
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#campo span {
+    color: #00ff22;
+    /* Cor para o <span> */
+    font-weight: 400;
+
+}
+
+#campo input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#buttonTable {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#buttonTable:hover {
+    background-color: #218838;
+}
