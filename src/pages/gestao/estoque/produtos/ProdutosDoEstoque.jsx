@@ -25,7 +25,7 @@ export default function ProdutosDoEstoque() {
     };
 
     const handleSave = () => {
-        console.log("Entrou na função")
+        console.log("Entrou na função de edição")
 
         const produtoAtualizado = {
             "nome": produtoEditado.nome,
@@ -35,13 +35,28 @@ export default function ProdutosDoEstoque() {
         }
         // console.log("Produto salvo:", produtoEditado);
         try {
-            console.log("Chamando a função de editar");
+            console.log("Chamando a função de editar no firebase");
             db.atualizarProduto(produtoEditado.id, produtoAtualizado)
-        }catch{
+            alert("Alterações salvas com sucesso")
+        } catch {
             console.log("Tentou atualizar no firebase mas não conseguiu")
         }
         setItemClicado(produtoEditado);
     };
+
+    const apagarProduto = () => {
+        console.log("Entrou na função de apagar")
+
+        try {
+            console.log("Chamando a função de apagar no firebase");
+            db.excluirProdutoPeloIdDoDocumento(produtoEditado.id)
+            alert("Produto apagado com sucesso")
+        } catch {
+            console.log("Tentou apagar no firebase mas não conseguiu")
+        }
+        setItemClicado(produtoEditado);
+
+    }
 
     return (
         <>
@@ -89,7 +104,7 @@ export default function ProdutosDoEstoque() {
 
                                 <div className='d-flex gap-3'>
                                     <button className="btn bg-success" style={{ color: 'white' }} onClick={handleSave}>Salvar alterações</button>
-                                    <button className="btn bg-danger" style={{ color: 'white' }} onClick={handleSave}>Apagar produto</button>
+                                    <button className="btn bg-danger" style={{ color: 'white' }} onClick={apagarProduto}>Apagar produto</button>
                                 </div>
                             </div>
                         )}

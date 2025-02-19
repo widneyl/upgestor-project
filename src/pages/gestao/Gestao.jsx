@@ -9,6 +9,7 @@ import img3 from '../../img/carrinho-amarelo.png';
 
 import './style.css';
 import { useState } from 'react';
+import QuantidadePorCategoria from '../../componentes/graficos/FinancasGraficos/QuantidadePorCategoria';
 
 export default function Inicio() {
 
@@ -62,6 +63,7 @@ export default function Inicio() {
                 <div className='lista-graf d-flex p-3 gap-5 '>
                   <Chart />
                   <Chart />
+                  <QuantidadePorCategoria/>
                 </div>
 
 
