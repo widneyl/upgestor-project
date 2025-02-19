@@ -29,7 +29,7 @@ export default function Inicio() {
 
           <div className='container-fluid area-cards'>
 
-            <HeaderBar title={"Gestão"} />
+            <HeaderBar title={"Gestão"} descricao={"Gestão do seu negócio"} />
 
             <div className='lista-card d-flex gap-5 p-3'>
               <CardInicio

@@ -82,7 +82,7 @@ export default function ProdutosRepositorio() {
     try {
       let produtosList = new Map();
       const produtosRef = collection(db, "produtos");
-      const q = query(produtosRef, orderBy("nome", "asc"), limit(6)); // Ordenando por nome em ordem crescente (A-Z)
+      const q = query(produtosRef, orderBy("nome", "asc"), limit(8)); // Ordenando por nome em ordem crescente (A-Z)
 
       let querySnapshot;
       querySnapshot = await getDocsFromCache(q);
@@ -95,7 +95,9 @@ export default function ProdutosRepositorio() {
       }
 
       querySnapshot.forEach((doc) => {
+        console.log("carregando produtos do firebase")
         produtosList.set(doc.id, doc.data());
+        
       });
 
       return produtosList;

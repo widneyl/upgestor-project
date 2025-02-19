@@ -14,7 +14,7 @@ export default function Inicio() {
     <section id="admin-section" className="d-flex">
       <Header />
       <div className="d-flex flex-column w-100 p-3 gap-3">
-        <HeaderBar title="Vendas" />
+        <HeaderBar title="Vendas" descricao="Boas vendas!"/>
         <SearchBar />
         <Table />
         <Servico />

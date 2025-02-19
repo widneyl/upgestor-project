@@ -27,6 +27,7 @@ export default function Financas() {
                             onButtonClick={handleButtonClick}
                         />
 
+                        {abaSelecionada === '' && <VendasFinancas/>}
                         {abaSelecionada === 'Vendas' && <VendasFinancas/>}
                         {abaSelecionada === 'Realatórios' && <p>Realatórios...</p>}
                         {abaSelecionada === 'Balanço de vendas' && <p>Balanço de vendas...</p>}

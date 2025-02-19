@@ -7,33 +7,34 @@ export default function GraficoPizza() {
     const [categorias, setCategorias] = useState([]);
     const [quantidades, setQuantidades] = useState([]);
 
-    useEffect(() => {
-        async function carregarDados() {
-            try {
-                const querySnapshot = await getDocs(collection(database, "produtos"));
-                const dados = {};
+    // useEffect(() => {
+    //     async function carregarDados() {
+    //         try {
+    //             const querySnapshot = await getDocs(collection(database, "produtos"));
+    //             const dados = {};
 
-                querySnapshot.forEach((doc) => {
-                    const { categoria } = doc.data();
+    //             querySnapshot.forEach((doc) => {
+    //                 console.log("carregando produtos do grafico")
+    //                 const { categoria } = doc.data();
 
-                    if (categoria) {
-                        if (dados[categoria]) {
-                            dados[categoria] += 1; // Apenas conta a quantidade de produtos
-                        } else {
-                            dados[categoria] = 1;
-                        }
-                    }
-                });
+    //                 if (categoria) {
+    //                     if (dados[categoria]) {
+    //                         dados[categoria] += 1; // Apenas conta a quantidade de produtos
+    //                     } else {
+    //                         dados[categoria] = 1;
+    //                     }
+    //                 }
+    //             });
 
-                setCategorias(Object.keys(dados));
-                setQuantidades(Object.values(dados));
-            } catch (error) {
-                console.error("Erro ao buscar dados:", error);
-            }
-        }
+    //             setCategorias(Object.keys(dados));
+    //             setQuantidades(Object.values(dados));
+    //         } catch (error) {
+    //             console.error("Erro ao buscar dados:", error);
+    //         }
+    //     }
 
-        carregarDados();
-    }, []);
+    //     carregarDados();
+    // }, []);
 
     // Verifica se os dados foram carregados antes de renderizar
     if (quantidades.length === 0) {

@@ -1,10 +1,32 @@
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    /* Posiciona a imagem à direita dentro do input */
+    pointer-events: none;
+    /* Evita que a imagem interfira no clique */
+}
+
 .search-input {
-    padding: 10px 35px 10px 10px;
-    border: none;
-    border-bottom: 2px solid #999;
+    padding: 8px 8px 8px 8px;
+    /* Ajusta espaço à esquerda para a imagem */
+    border: 1px solid rgba(84, 84, 84, 0.3);
+    border-radius: 6px;
     outline: none;
     font-size: 16px;
     background: transparent;
+    width: 100%;
+    /* Faz o input ocupar todo o espaço disponível */
+    max-width: 100%;
+    /* Evita que ultrapasse o container */
+    /* Ajuste conforme necessário */
 }
 
 .search-input::placeholder {
