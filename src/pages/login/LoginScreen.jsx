@@ -1,5 +1,4 @@
 import logo from "../../img/loja.png";
-import Input from "../../componentes/Input/Input";
 
 export default function LoginScreen() {
   return (
@@ -8,8 +7,8 @@ export default function LoginScreen() {
       <span>
         <h1>UpGestor</h1>
       </span>
-      <Input tipo="text" placeholder="Email" />
-      <Input tipo="password" placeholder="Senha" />
+      <input className="input-bottom-line" type="text" placeholder="Email" />
+      <input className="input-bottom-line" type="password" placeholder="Senha" />
       <button className="btn btn-success btn-lg">Iniciar</button>
     </div>
   );

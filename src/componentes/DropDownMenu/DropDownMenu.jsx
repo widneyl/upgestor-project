@@ -3,18 +3,22 @@ import "./DropDownMenu.css";
 
 /*
     recebe dois parametro um é o nome do menu o outro e um array com as elementos deste menu
-    ex.: <DropDownMenu name="Categoria" options={[{name:"option1",exec: function(){}}, {name:"option2"}]} />
+    ex.: <DropDownMenu name="Categoria" options={[{value:"option1",handleClick: function(){}}, {value:"option2"}]} />
 */
 export default function DropDownMenu({ nome, options }) {
   const list = options.map((opt) => {
-    if (opt.exec) {
+    if (opt.handleClick) {
       return (
-        <li className="item" onClick={opt.exec} type="button">
-          {opt.key}
+        <li className="item" onClick={handleClick} type="button">
+          {opt.value}
         </li>
       );
     } else {
-      return <li className="item" type="button">{opt.key}</li>;
+      return (
+        <li className="item" type="button">
+          {opt.value}
+        </li>
+      );
     }
   });
   return (
@@ -24,7 +28,7 @@ export default function DropDownMenu({ nome, options }) {
         type="button"
         data-bs-toggle="dropdown"
       >
-        <p class="mb-0">{nome}</p>
+        <p className="mb-0">{nome}</p>
         <img src={seta} style={{ height: "15px", width: "15px" }} />
       </div>
       <ul className="dropdown-menu">{list}</ul>

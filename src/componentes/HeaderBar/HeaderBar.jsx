@@ -12,9 +12,9 @@ export default function HeaderBar({ title }) {
         <DropDownMenu
           nome="Usuario"
           options={[
-            { key: "Minha conta" },
-            { key: "Configuraçoes" },
-            { key: "Sair" },
+            { value: "Minha conta" },
+            { value: "Configuraçoes" },
+            { value: "Sair" },
           ]}
         />
       </div>
