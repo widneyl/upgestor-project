@@ -157,6 +157,7 @@ export default function ProdutosRepositorio() {
   }
 
 
+
   return {
     cadastrarProduto,
     recuperarProdutos,
@@ -164,6 +165,7 @@ export default function ProdutosRepositorio() {
     recuperarProdutosLimitadosParaTabela,
     procurarProdutoPorNome,
     excluirProdutoPeloIdDoDocumento,
-    atualizarProduto
+    atualizarProduto,
+    
   }
 }
