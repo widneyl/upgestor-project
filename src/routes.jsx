@@ -4,6 +4,7 @@ import Inicio from "./pages/inicio/Inicio";
 import Gestao from './pages/gestao/Gestao'
 import Estoque from "./pages/gestao/estoque/Estoque";
 import LoginScreen from "./pages/login/LoginScreen";
+import Financas from "./pages/gestao/financas/Financas";
 
 
 export default function Rotas() {
@@ -24,6 +25,9 @@ export default function Rotas() {
                 />
                 <Route path="/login"
                     element={<LoginScreen/>} 
+                />
+                <Route path="/financas"
+                    element={<Financas/>} 
                 />
             </Routes>
         </BrowserRouter>

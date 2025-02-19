@@ -37,7 +37,7 @@ export default function Inicio() {
                 urlImg={img1}
                 corCard={"#00a65a"}
                 corRodape={"#038d4e"}
-              // irPara={"/venda"} // exemplo de navegação
+                irPara={"/financas"} // exemplo de navegação
               />
               <CardInicio
                 titulo={"Estoque"}
