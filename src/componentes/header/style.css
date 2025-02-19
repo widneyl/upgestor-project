@@ -27,14 +27,11 @@
 #nav-sec {
   background-color: #363F4E;
 }
-
-#logo-item img {
-  margin: 3%;
-}
-
-#logo-item a {
+#logo-item{
+  padding: 5px;
+  padding-left: 15px;
   color: white;
-  font-size: medium;
+  font-weight: bold;
 }
 
 #principal-ul {
@@ -46,8 +43,8 @@
 
 #principal-ul li {
   /* background-color: var(--firstColorDark); */
-  width: 100%;
-  border-radius: 50px;
+ 
+  border-radius: 5px;
   margin-inline: 5%;
 }
 
@@ -64,5 +61,10 @@ p{
 }
 .link{
   text-decoration: none;
+}
+.nav-item{
+  background-color: #3f4959;
+  padding: 8px;
+  
 }
 

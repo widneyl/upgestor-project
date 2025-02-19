@@ -5,6 +5,7 @@ import Gestao from './pages/gestao/Gestao'
 import Estoque from "./pages/gestao/estoque/Estoque";
 import LoginScreen from "./pages/login/LoginScreen";
 import Financas from "./pages/gestao/financas/Financas";
+import CadastroDeProdutos from "./pages/gestao/estoque/cadastroProdutos/CadastroDeProdutos";
 
 
 export default function Rotas() {

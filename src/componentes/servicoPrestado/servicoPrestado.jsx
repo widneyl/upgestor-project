@@ -1,38 +1,26 @@
-import DropDownMenu from "../DropDownMenu/DropDownMenu";
-import Input from "../Input/Input";
 import "./StyleServicoPrestado.css";
 
 // Serviço Prestado: onde posso vender um serviço fora de produtos.
 export default function ServicoPrestado() {
   return (
-    <div className="servicoPrestado">
-      <table className="table">
-        <thead>
-          <tr>
-            <td>Serviço Prestado</td>
-            <td>Categoria</td>
-            <td>Preço</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <Input placeholder="Descriçao do serviço prestado" />
-            </td>
-            <td>
-              <DropDownMenu nome="Categoria"
-                options={[{ key: "Manutenção" }, { key: "Limpeza" }]}
-              />
-            </td>
-            <td>
-              <Input placeholder="R$ 29,90" />
-            </td>
-            <td>
-              <button className="btn btn-success">Adicionar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="servicoPrestado mt-5">
+
+      <form>
+        <div class="mb-3 d-flex align-items-end gap-3">
+          <div class="w-25">
+            <label class="form-label" style={{fontWeight: 'bold', color: '#545454'}}>Serviço prestado</label>
+            <input type="text" class="form-control" placeholder="Descrição do serviço" />
+          </div>
+          <div>
+            <label class="form-label" style={{fontWeight: 'bold', color: '#545454'}}>Valor</label>
+            <input type="number" class="form-control" placeholder="R$" />
+          </div>
+          <div>
+            <button type="submit" class="btn bg-success text-white align-self-end">Adicionar</button>
+          </div>
+        </div>
+      </form>
+
     </div>
   );
 }

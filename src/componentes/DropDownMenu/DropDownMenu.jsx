@@ -1,5 +1,6 @@
 import seta from "../../img/seta_para_baixo.svg";
 import "./DropDownMenu.css";
+import filter from "../../img/iconsVenda/filter.png"
 
 /*
     recebe dois parametro um é o nome do menu o outro e um array com as elementos deste menu
@@ -24,6 +25,11 @@ export default function DropDownMenu({ nome, options }) {
         type="button"
         data-bs-toggle="dropdown"
       >
+        <img
+          src={filter}
+          width={18}
+          height={18}
+        />
         <p class="mb-0">{nome}</p>
         <img src={seta} style={{ height: "15px", width: "15px" }} />
       </div>

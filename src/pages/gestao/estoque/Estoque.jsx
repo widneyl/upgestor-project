@@ -41,6 +41,7 @@ export default function Estoque() {
                             onButtonClick={handleButtonClick}
                         />
 
+                        {abaSelecionada === '' && <ProdutosDoEstoque />}
                         {abaSelecionada === 'Produtos' && <ProdutosDoEstoque />}
                         {abaSelecionada === 'Balanço de estoque' && <p>Balanço de estoque em construção...</p>}
                         {abaSelecionada === 'Cadastro de produtos' && <CadastroDeProdutos />}
