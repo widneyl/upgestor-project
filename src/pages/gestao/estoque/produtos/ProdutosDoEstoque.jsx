@@ -63,7 +63,7 @@ export default function ProdutosDoEstoque() {
                                             <input
                                                 type="number"
                                                 name="estoque"
-                                                value={produtoEditado?.estoque || ""}
+                                                value={produtoEditado?.quantidade || ""}
                                                 onChange={handleInputChange}
                                             />
                                         </p>

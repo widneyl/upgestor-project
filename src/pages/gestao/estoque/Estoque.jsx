@@ -7,7 +7,11 @@ import './style.css';
 import CadastroDeProdutos from './cadastroProdutos/CadastroDeProdutos';
 import ProdutosDoEstoque from './produtos/ProdutosDoEstoque';
 
+import database from "../../../database/ProdutosRepositorio"
+
 export default function Estoque() {
+
+    const db = database();
 
     const [itemClicado, setItemClicado] = useState(null);
 
@@ -37,7 +41,7 @@ export default function Estoque() {
                             onButtonClick={handleButtonClick}
                         />
 
-                        {abaSelecionada === 'Produtos' && <ProdutosDoEstoque/>}
+                        {abaSelecionada === 'Produtos' && <ProdutosDoEstoque />}
                         {abaSelecionada === 'Balanço de estoque' && <p>Balanço de estoque em construção...</p>}
                         {abaSelecionada === 'Cadastro de produtos' && <CadastroDeProdutos />}
 
@@ -50,6 +54,9 @@ export default function Estoque() {
                                 <p><strong>Estoque:</strong> {itemClicado.estoque || ""}</p>
                             </div>
                         )}
+
+
+
 
 
 

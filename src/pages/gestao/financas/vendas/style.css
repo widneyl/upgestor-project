@@ -1,0 +1,36 @@
+.tabela-container {
+
+    overflow-x: auto;
+}
+
+.tabela-vendas {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.tabela-vendas th,
+.tabela-vendas td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabela-vendas th {
+    background-color: #f4f4f9;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+
+    .tabela-vendas th,
+    .tabela-vendas td {
+        display: block;
+        width: 100%;
+    }
+
+    .tabela-vendas tr {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+    }
+}
