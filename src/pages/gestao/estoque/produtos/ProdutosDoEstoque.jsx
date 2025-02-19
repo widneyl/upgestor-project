@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import TabelaGestao from '../../componentesGestao/TabelaGestao';
 import "./style.css"
+import ProdutosRepositorio from '../../../../database/ProdutosRepositorio';
 
 export default function ProdutosDoEstoque() {
+
+    const db = ProdutosRepositorio();
+
     const [itemClicado, setItemClicado] = useState(null);
     const [produtoEditado, setProdutoEditado] = useState(null);
 
@@ -21,8 +25,21 @@ export default function ProdutosDoEstoque() {
     };
 
     const handleSave = () => {
-        console.log("Produto salvo:", produtoEditado);
-        // Aqui você pode fazer a atualização do produto no backend ou estado global
+        console.log("Entrou na função")
+
+        const produtoAtualizado = {
+            "nome": produtoEditado.nome,
+            "preco": produtoEditado.preco,
+            "categoria": produtoEditado.categoria,
+            "quantidade": produtoEditado.quantidade
+        }
+        // console.log("Produto salvo:", produtoEditado);
+        try {
+            console.log("Chamando a função de editar");
+            db.atualizarProduto(produtoEditado.id, produtoAtualizado)
+        }catch{
+            console.log("Tentou atualizar no firebase mas não conseguiu")
+        }
         setItemClicado(produtoEditado);
     };
 
@@ -62,7 +79,7 @@ export default function ProdutosDoEstoque() {
                                         <p>Estoque:
                                             <input
                                                 type="number"
-                                                name="estoque"
+                                                name="quantidade"
                                                 value={produtoEditado?.quantidade || ""}
                                                 onChange={handleInputChange}
                                             />
@@ -70,7 +87,10 @@ export default function ProdutosDoEstoque() {
                                     </div>
                                 </div>
 
-                                <button id='buttonTable' onClick={handleSave}>Salvar alterações</button>
+                                <div className='d-flex gap-3'>
+                                    <button className="btn bg-success" style={{ color: 'white' }} onClick={handleSave}>Salvar alterações</button>
+                                    <button className="btn bg-danger" style={{ color: 'white' }} onClick={handleSave}>Apagar produto</button>
+                                </div>
                             </div>
                         )}
                     </div>

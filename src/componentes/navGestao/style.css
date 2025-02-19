@@ -26,16 +26,17 @@
     align-items: center;
 }
 
-.text-header {
+#text-header {
     font-size: 15px;
-    border-radius: 5px;
-    padding: 5px;
+    /* border-radius: 5px; */
+    padding: 8px;
     cursor: pointer;
     background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.17);
+    border: none;
+    color: white;
 }
 
-.hr {
+hr {
     border: none;
     border-top: 0.5px solid black;
     margin: 0;

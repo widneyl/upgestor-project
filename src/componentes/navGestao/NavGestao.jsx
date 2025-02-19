@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import box from "../../img/box.png"
+import add from "../../img/add.png"
+import graphic from "../../img/graphic.png"
 import './style.css';
 
 export default function NavGestao({ t1, t2, t3, t4, t5, filtros, onButtonClick }) {
@@ -17,10 +20,21 @@ export default function NavGestao({ t1, t2, t3, t4, t5, filtros, onButtonClick }
             </div>
 
             <div className={`menu-itens ${menuAberto ? 'aberto' : ''}`}>
-                <button className="text-header" onClick={() => onButtonClick(t1)}>{t1}</button>
-                <button className="text-header" onClick={() => onButtonClick(t2)}>{t2}</button>
-                <button className="text-header" onClick={() => onButtonClick(t3)}>{t3}</button>
+
+                <button id="text-header" className="bg-secondary" onClick={() => onButtonClick(t1)}>
+                    <img src={box} width={18} style={{ marginRight: 8 }} />
+                    {t1}
+                </button>
+                <button id="text-header" className="bg-secondary" onClick={() => onButtonClick(t2)}>
+                    <img src={add} width={18} style={{ marginRight: 8 }} />
+                    {t2}
+                </button>
+                <button id="text-header" className="bg-secondary" onClick={() => onButtonClick(t3)}>
+                    <img src={graphic} width={18} style={{ marginRight: 8 }} />
+                    {t3}
+                </button>
             </div>
+            <hr style={{ padding: 0, margin: 0 }} />
 
 
             {filtros && (

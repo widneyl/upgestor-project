@@ -2,13 +2,17 @@ import { useState } from 'react';
 // import { collection, addDoc } from 'firebase/firestore';
 // import db from '../firebase';  // Ajuste o caminho conforme sua estrutura de pastas
 import './style.css';
+import ProdutosRepositorio from '../../../../database/ProdutosRepositorio';
 
 export default function CadastroDeProdutos() {
+
+    const db = ProdutosRepositorio();
+
     const [nome, setNome] = useState('');
     const [preco, setPreco] = useState('');
     const [dataCadastro, setDataCadastro] = useState('');
     const [categoria, setCategoria] = useState('');
-    const [estoque, setEstoque] = useState('');
+    const [quantidade, setquantidade] = useState('');
     const [erros, setErros] = useState({});
     const [carregando, setCarregando] = useState(false);
 
@@ -23,7 +27,7 @@ export default function CadastroDeProdutos() {
         if (!preco || isNaN(preco) || Number(preco) <= 0) novosErros.preco = 'Preço deve ser um número positivo.';
         if (!dataCadastro) novosErros.dataCadastro = 'Data de cadastro é obrigatória.';
         if (!categoria) novosErros.categoria = 'Categoria é obrigatória.';
-        if (!estoque || isNaN(estoque) || Number(estoque) < 0) novosErros.estoque = 'Estoque deve ser um número positivo.';
+        if (!quantidade || isNaN(quantidade) || Number(quantidade) < 0) novosErros.quantidade = 'A quandidade deve ser um número positivo.';
 
         setErros(novosErros);
 
@@ -39,13 +43,15 @@ export default function CadastroDeProdutos() {
             const produto = {
                 nome,
                 preco: Number(preco),
-                dataCadastro,
                 categoria,
-                estoque: Number(estoque)
+                quantidade: Number(quantidade)
             };
 
             try {
-                await addDoc(collection(db, 'produtos'), produto);
+
+                console.log('Chamando o metodo de cadastro!');
+                db.cadastrarProduto(produto)
+                console.log('Produto cadastrado com sucesso!');
                 alert('Produto cadastrado com sucesso!');
 
               
@@ -53,7 +59,7 @@ export default function CadastroDeProdutos() {
                 setPreco('');
                 setDataCadastro('');
                 setCategoria('');
-                setEstoque('');
+                setquantidade('');
             } catch (error) {
                 console.error('Erro ao cadastrar produto: ', error);
                 alert('Erro ao cadastrar produto. Tente novamente.');
@@ -102,7 +108,7 @@ export default function CadastroDeProdutos() {
                                 />
                                 {erros.dataCadastro && <div className="text-danger">{erros.dataCadastro}</div>}
                             </div>
-                            <button type="submit" className="btn btn-primary" disabled={carregando}>
+                            <button type="submit" className="btn bg-success" style={{color: 'white'}} disabled={carregando}>
                                 {carregando ? 'Cadastrando...' : 'Cadastrar'}
                             </button>
                         </div>
@@ -120,15 +126,15 @@ export default function CadastroDeProdutos() {
                                 {erros.categoria && <div className="text-danger">{erros.categoria}</div>}
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="estoque" className="form-label">Estoque atual</label>
+                                <label htmlFor="quantidade" className="form-label">Quantidade atual</label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    id="estoque"
-                                    value={estoque}
-                                    onChange={(e) => setEstoque(e.target.value)}
+                                    id="quantidade"
+                                    value={quantidade}
+                                    onChange={(e) => setquantidade(e.target.value)}
                                 />
-                                {erros.estoque && <div className="text-danger">{erros.estoque}</div>}
+                                {erros.quantidade && <div className="text-danger">{erros.quantidade}</div>}
                             </div>
                         </div>
                     </form>

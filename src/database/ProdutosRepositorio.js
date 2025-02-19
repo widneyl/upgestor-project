@@ -8,7 +8,8 @@ import {
   limit,
   orderBy,
   query,
-  where
+  where,
+  updateDoc
 } from "firebase/firestore";
 import { database } from "../database/firebase/firebase"
 import produtos from "../database/catalogo/Catalogo.js"
@@ -143,12 +144,26 @@ export default function ProdutosRepositorio() {
     }
   }
 
+
+  // metodo para atualizar um produto
+  async function atualizarProduto(id, novosDados) {
+    try {
+    const docRef = doc(db, "produtos", id);
+      await updateDoc(docRef, novosDados);
+      console.log("Documento atualizado com sucesso!");
+    } catch (error) {
+      console.error("Erro ao atualizar documento:", error);
+    }
+  }
+
+
   return {
     cadastrarProduto,
     recuperarProdutos,
     processarCatalogo,
     recuperarProdutosLimitadosParaTabela,
     procurarProdutoPorNome,
-    excluirProdutoPeloIdDoDocumento
+    excluirProdutoPeloIdDoDocumento,
+    atualizarProduto
   }
 }
