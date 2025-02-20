@@ -7,7 +7,7 @@ export default function ServicoPrestado() {
   // const [listaServicos, setListaServico] = useState([]);
   return (
     <div className="servicoPrestado">
-      <table className="table">
+      <table className="w-100">
         <thead>
           <tr>
             <td>Serviço Prestado</td>

@@ -1,8 +1,9 @@
 #admin-section {
   flex-direction: row;
+  background-color: #faf7f7;
 }
 
-#admin-section .input-bottom-line {
+.input-bottom-line {
   padding: 10px 35px 10px 10px;
   border: none;
   border-bottom: 2px solid #999;
@@ -11,7 +12,7 @@
   background: transparent;
 }
 
-#admin-section .input-bottom-line::placeholder {
+.input-bottom-line::placeholder {
   color: #999;
 }
 @media screen and (max-width: 720px) {

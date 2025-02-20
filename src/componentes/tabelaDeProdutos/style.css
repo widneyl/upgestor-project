@@ -16,20 +16,14 @@
 .table-produtos th, 
 .table-produtos td {
     padding: 12px 15px;
-    /* border: 1px solid #ddd; */
     text-align: left;
 }
 
 .table-produtos th {
-    background-color: #ffffff;
     font-weight: bold;
     position: sticky;
     top: 0;
     z-index: 1;
-}
-
-.table-produtos tr:nth-child(even) {
-    /* background-color: #f9f9f9; */
 }
 
 .table-produtos tr:hover {
