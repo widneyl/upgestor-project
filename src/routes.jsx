@@ -5,6 +5,7 @@ import Gestao from './pages/gestao/Gestao'
 import Estoque from "./pages/gestao/estoque/Estoque";
 import LoginScreen from "./pages/login/LoginScreen";
 import Financas from "./pages/gestao/financas/Financas";
+import Pagamento from "./pages/venda/pagamento/Pagamento";
 import CadastroDeProdutos from "./pages/gestao/estoque/cadastroProdutos/CadastroDeProdutos";
 
 
@@ -30,6 +31,10 @@ export default function Rotas() {
                 <Route path="/financas"
                     element={<Financas/>} 
                 />
+                <Route path="/financas"
+                    element={<Financas/>} 
+                />
+                <Route path="/pay" element={<Pagamento/>}/>
             </Routes>
         </BrowserRouter>
     );
