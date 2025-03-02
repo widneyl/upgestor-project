@@ -1,5 +1,5 @@
 import DropDownMenu from "../DropDownMenu/DropDownMenu";
-import Input from "../Input/Input";
+import Input from "../Inputs/SearchInput/Input";
 import plus from "../../img/iconsVenda/plus.png"
 import "./style.css";
 import { Link } from "react-router-dom";
