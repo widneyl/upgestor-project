@@ -5,8 +5,21 @@ import Table from "../../componentes/tabelaDeProdutos/TabelaDeProdutos";
 import Servico from "../../componentes/servicoPrestado/servicoPrestado";
 import Comanda from "./carrinho/Carrinho";
 import "./style.css";
+import { useState } from "react";
 
 export default function Inicio() {
+  const [itens, setItens] = useState([]);
+  const [visivel, setVisivel] = useState(false);
+
+  const handleAddItem = (newItem) => {
+    setItens((prevItens) => {
+      const updatedItens = [...prevItens];
+      updatedItens.push(newItem);
+      setVisivel(updatedItens.length > 0);
+      return updatedItens;
+    });
+  };
+
   return (
     <section id="admin-section" className="d-flex">
       <Header />
@@ -15,23 +28,10 @@ export default function Inicio() {
         <SearchBar />
         <div className="d-flex flex-row justify-content-between">
           <div>
-            <Table />
-            <Servico />
+            <Table selectedItens={handleAddItem} />
+            <Servico selectedItens={handleAddItem} />
           </div>
-          <Comanda
-            itens={[
-              {
-                nome: "produto1",
-                preco: 32.86,
-                qtd: 3,
-              },
-              {
-                nome: "produto2",
-                preco: 3.6,
-                qtd: 1,
-              },
-            ]}
-          />
+          {visivel && <Comanda itens={itens} />}
         </div>
       </div>
     </section>
