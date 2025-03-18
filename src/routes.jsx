@@ -31,9 +31,6 @@ export default function Rotas() {
                 <Route path="/financas"
                     element={<Financas/>} 
                 />
-                <Route path="/financas"
-                    element={<Financas/>} 
-                />
                 <Route path="/pay" element={<Pagamento/>}/>
             </Routes>
         </BrowserRouter>

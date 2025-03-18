@@ -1,5 +1,5 @@
 import logo from "../../img/loja.png";
-import Input from "../../componentes/Input/Input";
+import Input from "../../componentes/Inputs/BottomLine/Input";
 
 export default function LoginScreen() {
   return (

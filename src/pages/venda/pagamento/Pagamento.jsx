@@ -2,6 +2,7 @@ import DropDownMenu from "../../../componentes/DropDownMenu/DropDownMenu";
 import HeaderBar from "../../../componentes/HeaderBar/HeaderBar";
 import Header from "../../../componentes/header/Header";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const produtos = [
   {
     id: 1,
@@ -195,24 +196,46 @@ export default function Pagamento({ onItemClick }) {
             </div>
           </div>
           <div
-            className="col-sm p-3"
+            className="col-sm p-3 d-flex flex-column justify-content-between"
             style={{ backgroundColor: "#ffffff", maxWidth: "415px" }}
           >
-            <p>Venda</p>
-            <div className="d-flex flex-row gap-2 justify-content-between align-bottom">
-              <input
-                type="text"
-                className="input-bottom-line"
-                style={{ maxWidth: "100px" }}
-              />
-              <DropDownMenu
-                nome="Forma de pagamento"
-                options={[
-                  { key: "Pix" },
-                  { key: "Dinheiro" },
-                  { key: "Cartao" },
-                ]}
-              />
+            <div>
+              <p>Venda</p>
+              <div className="d-flex flex-row gap-2 justify-content-between align-bottom">
+                <input
+                  type="text"
+                  className="input-bottom-line"
+                  style={{ maxWidth: "100px" }}
+                />
+                <DropDownMenu
+                  nome="Forma de pagamento"
+                  options={[
+                    { key: "Pix" },
+                    { key: "Dinheiro" },
+                    { key: "Cartao" },
+                  ]}
+                />
+              </div>
+            </div>
+            <div>
+              <div className="d-flex flex-row justify-content-between">
+                <div>
+                  <p>Restante</p>
+                  <p>Troco</p>
+                </div>
+                <div>
+                  <p>R$ 0,00</p>
+                  <p>R$ 0,00</p>
+                </div>
+              </div>
+              <div className="d-flex flex-row justify-content-between">
+                <Link className="btn bg-danger text-white" to="/venda">
+                  Cancelar venda
+                </Link>
+                <button className="btn bg-success text-white">
+                  Receber pagamento
+                </button>
+              </div>
             </div>
           </div>
         </div>
