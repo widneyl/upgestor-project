@@ -1,32 +1,9 @@
 import trashIcon from "../../../img/trash.png";
 import plusIcon from "../../../img/rect1.svg";
 import minhIcon from "../../../img/rect2.svg";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function Comanda({ itens = [] }) {
-  const [localItens, setLocalItens] = useState(itens);
-
-  useEffect(() => {
-    if (Array.isArray(itens)) {
-      setLocalItens([...itens]); // Garante que estamos copiando os dados corretamente
-    }
-  }, [itens]);
-
-  const handleAddItem = (index) => {
-    setLocalItens(localItens.map((item, i) =>
-      i === index ? { ...item, qtd: item.qtd + 1 } : item
-    ));
-  };
-
-  const handleRemoveItem = (index) => {
-    setLocalItens((prevItens) =>
-      prevItens.map((item, i) =>
-        i === index && item.qtd > 1 ? { ...item, qtd: item.qtd - 1 } : item
-      )
-    );
-  };
-
+export default function Carrinho({ itens, onIncreaseQtd, onDecreaseQtd }) {
   return (
     <div className="w-25 d-flex flex-column justify-content-between">
       <table className="table" style={{ borderStyle: "none" }}>
@@ -40,18 +17,18 @@ export default function Comanda({ itens = [] }) {
                   height={15}
                   width={15}
                   style={{ cursor: "pointer" }}
-                  onClick={() => handleRemoveItem(index)}
+                  onClick={() => onDecreaseQtd(i.id)}
                 />
-                <p className="mb-0">{i.qtd}</p>
+                <p className="mb-0">{i.qtdCarrinho}</p>
                 <img
                   src={plusIcon}
                   height={15}
                   width={15}
                   style={{ cursor: "pointer" }}
-                  onClick={() => handleAddItem(index)}
+                  onClick={() => onIncreaseQtd(i.id)}
                 />
               </td>
-              <td>R$ {i.qtd * i.preco}</td>
+              <td>R$ {i.qtdCarrinho * i.preco}</td>
             </tr>
           ))}
         </tbody>

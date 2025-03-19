@@ -1,15 +1,21 @@
 import { useState } from "react";
 import "./StyleServicoPrestado.css";
 
-export default function ServicoPrestado({ selectedItens }) {
-  const [servico, setServico] = useState({
-    nome: "",
-    preco: 0,
-  });
+export default function ServicoPrestado({ onAddItem }) {
+  const [servico, setServico] = useState({ nome: "", preco: 0 });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setServico({ ...servico, [name]: value });
+  };
+
+  const handleSubmit = () => {
+    // Adiciona o serviço ao estado compartilhado
+    onAddItem({
+      nome: servico.nome,
+      qtd: 1,
+      preco: servico.preco,
+    });
   };
 
   return (
@@ -50,17 +56,7 @@ export default function ServicoPrestado({ selectedItens }) {
         <div>
           <button
             className="btn bg-success text-white align-self-end"
-            onClick={() => {
-              if (servico.nome && servico.preco > 0) {
-                selectedItens({
-                  nome: servico.nome,
-                  preco: servico.preco,
-                  qtd: 1,
-                });
-              } else {
-                alert("Por favor, preencha o nome e o valor do serviço.");
-              }
-            }}
+            onClick={handleSubmit}
           >
             Adicionar
           </button>
