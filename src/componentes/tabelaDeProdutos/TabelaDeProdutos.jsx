@@ -8,150 +8,67 @@ import money from "../../img/iconsVenda/money.png";
 import categoria from "../../img/iconsVenda/categoria.png";
 import star from "../../img/iconsVenda/star.png";
 
-export default function TabelaDeProdutos({ onItemClick, selectedItens }) {
+export default function TabelaDeProdutos({ onAddItem, onRemoveItem }) {
   const [selecionados, setSelecionados] = useState([]);
-  const [produtos, setProdutos] = useState([
+  //firebase offline
+  const produtos = [
     {
       id: 1,
       nome: "Produto A",
       categoria: "Categoria 1",
-      preco: "R$ 50,00",
+      preco: 50,
       estoque: 20,
     },
     {
       id: 2,
       nome: "Produto B",
       categoria: "Categoria 2",
-      preco: "R$ 30,00",
+      preco: 30,
       estoque: 15,
     },
     {
       id: 3,
       nome: "Produto C",
       categoria: "Categoria 3",
-      preco: "R$ 20,00",
+      preco: 20,
       estoque: 10,
     },
     {
       id: 4,
       nome: "Produto D",
       categoria: "Categoria 1",
-      preco: "R$ 40,00",
+      preco: 40,
       estoque: 25,
     },
     {
       id: 5,
       nome: "Produto E",
       categoria: "Categoria 2",
-      preco: "R$ 60,00",
+      preco: 60,
       estoque: 18,
     },
     {
       id: 6,
       nome: "Produto F",
       categoria: "Categoria 3",
-      preco: "R$ 70,00",
+      preco: 70,
       estoque: 30,
     },
     {
       id: 7,
       nome: "Produto G",
       categoria: "Categoria 1",
-      preco: "R$ 55,00",
+      preco: 55,
       estoque: 22,
     },
     {
       id: 8,
       nome: "Produto H",
       categoria: "Categoria 2",
-      preco: "R$ 35,00",
+      preco: 35,
       estoque: 12,
     },
-    {
-      id: 9,
-      nome: "Produto I",
-      categoria: "Categoria 3",
-      preco: "R$ 45,00",
-      estoque: 10,
-    },
-    {
-      id: 10,
-      nome: "Produto J",
-      categoria: "Categoria 1",
-      preco: "R$ 50,00",
-      estoque: 5,
-    },
-    {
-      id: 11,
-      nome: "Produto K",
-      categoria: "Categoria 2",
-      preco: "R$ 25,00",
-      estoque: 20,
-    },
-    {
-      id: 12,
-      nome: "Produto L",
-      categoria: "Categoria 3",
-      preco: "R$ 15,00",
-      estoque: 8,
-    },
-    {
-      id: 13,
-      nome: "Produto M",
-      categoria: "Categoria 1",
-      preco: "R$ 40,00",
-      estoque: 30,
-    },
-    {
-      id: 14,
-      nome: "Produto N",
-      categoria: "Categoria 2",
-      preco: "R$ 65,00",
-      estoque: 18,
-    },
-    {
-      id: 15,
-      nome: "Produto O",
-      categoria: "Categoria 3",
-      preco: "R$ 80,00",
-      estoque: 25,
-    },
-    {
-      id: 16,
-      nome: "Produto P",
-      categoria: "Categoria 1",
-      preco: "R$ 45,00",
-      estoque: 12,
-    },
-    {
-      id: 17,
-      nome: "Produto Q",
-      categoria: "Categoria 2",
-      preco: "R$ 55,00",
-      estoque: 20,
-    },
-    {
-      id: 18,
-      nome: "Produto R",
-      categoria: "Categoria 3",
-      preco: "R$ 50,00",
-      estoque: 17,
-    },
-    {
-      id: 19,
-      nome: "Produto S",
-      categoria: "Categoria 1",
-      preco: "R$ 30,00",
-      estoque: 10,
-    },
-    {
-      id: 20,
-      nome: "Produto T",
-      categoria: "Categoria 2",
-      preco: "R$ 20,00",
-      estoque: 30,
-    },
-  ]);
+  ];
 
   const db = ProdutosRepositorio();
 
@@ -166,31 +83,17 @@ export default function TabelaDeProdutos({ onItemClick, selectedItens }) {
   // };
 
   // useEffect(recuperarProdutos, []);
-
-  const handleRowClick = (id) => {
-    const produtoSelecionado = produtos.find((produto) => produto.id === id);
-
+  const handleClick = (produto) => {
     setSelecionados((prevSelecionados) => {
-      let novosSelecionados;
-
-      if (prevSelecionados.some((item) => item.id === id)) {
+      if (prevSelecionados.some((item) => item.id === produto.id)) {
         // Remove da lista se já estiver selecionado
-        novosSelecionados = prevSelecionados.filter((item) => item.id !== id);
+        onRemoveItem(produto.id);
+        return prevSelecionados.filter((item) => item.id !== produto.id);
       } else {
         // Adiciona à lista se não estiver selecionado
-        novosSelecionados = [...prevSelecionados, produtoSelecionado];
+        onAddItem(produto);
+        return [...prevSelecionados, produto];
       }
-
-      // Atualiza os itens no componente pai (Inicio) de forma assíncrona
-      setTimeout(() => {
-        selectedItens({
-          nome: produtoSelecionado.nome,
-          qtd: 1,
-          preco: 5,
-        });
-      }, 0);
-
-      return novosSelecionados;
     });
   };
 
@@ -216,7 +119,7 @@ export default function TabelaDeProdutos({ onItemClick, selectedItens }) {
             </th>
             <th>
               <img src={boxConjunto} width={20} />
-              Estoque Atual
+              Estoque
             </th>
           </tr>
         </thead>
@@ -224,23 +127,25 @@ export default function TabelaDeProdutos({ onItemClick, selectedItens }) {
           {produtos.map((produto) => (
             <tr
               key={produto.id}
-              onClick={() => {
-                handleRowClick(produto.id);
-              }}
-              // className={selecionados[produto.id] ? "selecionado" : ""}
+              onClick={() => handleClick(produto)}
+              className={
+                selecionados.some((item) => item.id === produto.id)
+                  ? "selecionado"
+                  : ""
+              }
             >
               <td className="checkbox">
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  // checked={selecionados[produto.id]}
+                  checked={selecionados.some((item) => item.id === produto.id)}
                   readOnly
                 />
               </td>
               <td>{produto.nome}</td>
               <td>{produto.categoria}</td>
-              <td>R${produto.preco}</td>
-              <td>{produto.quantidade} unidades</td>
+              <td>R$ {produto.preco}</td>
+              <td>{produto.estoque} unidades</td>
             </tr>
           ))}
         </tbody>
