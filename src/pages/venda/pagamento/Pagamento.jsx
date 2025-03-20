@@ -1,6 +1,7 @@
 import DropDownMenu from "../../../componentes/DropDownMenu/DropDownMenu";
 import HeaderBar from "../../../componentes/HeaderBar/HeaderBar";
 import Header from "../../../componentes/header/Header";
+import Input from "../../../componentes/Inputs/BottomLine/Input";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 const produtos = [
@@ -167,7 +168,7 @@ export default function Pagamento({ onItemClick }) {
         <div className="row gap-5">
           <div
             className="col-sm p-3"
-            style={{ backgroundColor: "#ffffff", maxWidth: "415px" }}
+            style={{ backgroundColor: "#ffffff", maxWidth: "415px",maxHeight:"90vh" }}
           >
             <p>Itens adicionados</p>
             <div className="h-75 overflow-y-scroll">
@@ -202,11 +203,7 @@ export default function Pagamento({ onItemClick }) {
             <div>
               <p>Venda</p>
               <div className="d-flex flex-row gap-2 justify-content-between align-bottom">
-                <input
-                  type="text"
-                  className="input-bottom-line"
-                  style={{ maxWidth: "100px" }}
-                />
+                <Input/>
                 <DropDownMenu
                   nome="Forma de pagamento"
                   options={[

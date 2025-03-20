@@ -7,17 +7,27 @@ import filter from "../../img/iconsVenda/filter.png"
     ex.: <DropDownMenu name="Categoria" options={[{name:"option1",exec: function(){}}, {name:"option2"}]} />
 */
 export default function DropDownMenu({ nome, options }) {
-  const list = options.map((opt) => {
+  const list = options.map((opt, index) => {
     if (opt.exec) {
       return (
-        <li className="item" onClick={opt.exec} type="button">
+        <li
+          className="item"
+          onClick={opt.exec}
+          type="button"
+          key={index}
+        >
           {opt.key}
         </li>
       );
     } else {
-      return <li className="item" type="button">{opt.key}</li>;
+      return (
+        <li className="item" type="button" key={index}> 
+          {opt.key}
+        </li>
+      );
     }
   });
+
   return (
     <div className="relative inline-block d-flex">
       <div
@@ -25,12 +35,8 @@ export default function DropDownMenu({ nome, options }) {
         type="button"
         data-bs-toggle="dropdown"
       >
-        <img
-          src={filter}
-          width={18}
-          height={18}
-        />
-        <p class="mb-0">{nome}</p>
+        <img src={filter} width={18} height={18} />
+        <p className="mb-0">{nome}</p>
         <img src={seta} style={{ height: "15px", width: "15px" }} />
       </div>
       <ul className="dropdown-menu">{list}</ul>
