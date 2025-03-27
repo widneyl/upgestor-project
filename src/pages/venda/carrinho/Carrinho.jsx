@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
-
 import trashIcon from "../../../img/trash.png";
 import plusIcon from "../../../img/rect1.svg";
 import minhIcon from "../../../img/rect2.svg";
+import { Link } from "react-router-dom";
 
-export default function Comanda({ itens }) {
+export default function Carrinho({ itens, onIncreaseQtd, onDecreaseQtd }) {
   return (
     <div className="w-25 d-flex flex-column justify-content-between">
       <table className="table" style={{ borderStyle: "none" }}>
@@ -14,33 +13,31 @@ export default function Comanda({ itens }) {
               <td>{i.nome}</td>
               <td className="d-flex align-items-center gap-3">
                 <img
-                  src={plusIcon}
-                  height={15}
-                  width={15}
-                  style={{ cursor: "pointer" }}
-                />
-                <p className="mb-0">{i.qtd}</p>
-                <img
                   src={minhIcon}
                   height={15}
                   width={15}
                   style={{ cursor: "pointer" }}
+                  onClick={() => onDecreaseQtd(i.id)}
+                />
+                <p className="mb-0">{i.qtdCarrinho}</p>
+                <img
+                  src={plusIcon}
+                  height={15}
+                  width={15}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => onIncreaseQtd(i.id)}
                 />
               </td>
-              <td>{i.qtd * i.preco}</td>
+              <td>R$ {i.qtdCarrinho * i.preco}</td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      <div>
-        <div></div>
-        <div className="d-flex flex-row justify-content-between">
-          <img src={trashIcon} height="32" />{" "}
-          <Link className="btn bg-success text-white" to="/pay">
-            Ir para o pagamento
-          </Link>
-        </div>
+      <div className="d-flex flex-row justify-content-between">
+        <img src={trashIcon} height="32" />{" "}
+        <Link className="btn bg-success text-white" to="/pay">
+          Ir para o pagamento
+        </Link>
       </div>
     </div>
   );
